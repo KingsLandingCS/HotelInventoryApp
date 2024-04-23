@@ -18,6 +18,7 @@ export class RoomsComponent {
 
   roomList: RoomList[] = [
     {
+      roomNumber: 1,
       roomType: 'Deluxe Room',
       amenities: 'Swiming Pool, Gym, Spa, Sports Complex, Hi Tea, Buffet',
       price: 1000,
@@ -27,6 +28,7 @@ export class RoomsComponent {
       checkOutTime: new Date('23-Apr-2022'),
     },
     {
+      roomNumber: 2,
       roomType: 'Deluxe Room',
       amenities: 'Swiming Pool, Gym, Spa, Sports Complex, Hi Tea, Buffet',
       price: 1500,
@@ -36,6 +38,7 @@ export class RoomsComponent {
       checkOutTime: new Date('23-Apr-2022'),
     },
     {
+      roomNumber: 3,
       roomType: 'Private Suite',
       amenities: 'Swiming Pool, Gym, Spa, Sports, Complex, Hi Tea, Buffet',
       price: 5000,

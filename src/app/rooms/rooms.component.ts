@@ -57,8 +57,10 @@ export class RoomsComponent {
       },
     ];
   }
-
   toggle() {
     this.hideRooms = !this.hideRooms;
+  }
+  selectRoom(room: RoomList) {
+    console.log(room);
   }
 }

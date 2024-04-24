@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges, DoCheck, OnInit } from '@angular/core';
 import { Room, RoomList } from './rooms';
 
 @Component({
@@ -6,7 +6,7 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent {
+export class RoomsComponent implements OnInit, DoCheck {
   hotelName = 'Hilton Hotel';
   numberOfRooms = 10;
   hideRooms = false;
@@ -22,6 +22,9 @@ export class RoomsComponent {
   roomList: RoomList[] = [];
 
   constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.roomList = [
@@ -60,6 +63,11 @@ export class RoomsComponent {
       },
     ];
   }
+
+  ngDoCheck() {
+    console.log('on changes is called');
+  }
+
   toggle() {
     this.hideRooms = !this.hideRooms;
     this.title = 'Rooms List';

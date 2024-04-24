@@ -1,12 +1,20 @@
-import { Component, SimpleChanges, DoCheck, OnInit } from '@angular/core';
+import {
+  Component,
+  SimpleChanges,
+  DoCheck,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { Room, RoomList } from './rooms';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent implements OnInit, DoCheck {
+export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   hotelName = 'Hilton Hotel';
   numberOfRooms = 10;
   hideRooms = false;
@@ -21,12 +29,19 @@ export class RoomsComponent implements OnInit, DoCheck {
 
   roomList: RoomList[] = [];
 
+  @ViewChild(HeaderComponent, { static: true })
+  headerComponent!: HeaderComponent;
+
   constructor() {}
+  // ngAfterViewInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {
+    console.log(this.headerComponent);
     this.roomList = [
       {
         roomNumber: 1,
@@ -67,7 +82,9 @@ export class RoomsComponent implements OnInit, DoCheck {
   ngDoCheck() {
     console.log('on changes is called');
   }
-
+  ngAfterViewInit() {
+    console.log(this.headerComponent);
+  }
   toggle() {
     this.hideRooms = !this.hideRooms;
     this.title = 'Rooms List';

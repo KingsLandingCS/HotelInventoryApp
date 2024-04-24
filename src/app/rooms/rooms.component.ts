@@ -29,7 +29,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
 
   roomList: RoomList[] = [];
 
-  @ViewChild(HeaderComponent, { static: true })
+  @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
 
   constructor() {}
@@ -41,7 +41,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log(this.headerComponent);
+    // console.log(this.headerComponent);
     this.roomList = [
       {
         roomNumber: 1,
@@ -83,7 +83,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
     console.log('on changes is called');
   }
   ngAfterViewInit() {
-    console.log(this.headerComponent);
+    this.headerComponent.title = 'Room View';
   }
   toggle() {
     this.hideRooms = !this.hideRooms;

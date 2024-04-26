@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { Room, RoomList } from './rooms';
 import { HeaderComponent } from '../header/header.component';
+import { RoomsService } from '../rooms.service';
 
 @Component({
   selector: 'app-rooms',
@@ -35,8 +36,9 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   headerComponent!: HeaderComponent;
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
+  // roomService = new RoomsService();
 
-  constructor() {}
+  constructor(private roomsService: RoomsService) { }
   // ngAfterViewInit(): void {
   //   throw new Error('Method not implemented.');
   // }
@@ -46,41 +48,6 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
-    this.roomList = [
-      {
-        roomNumber: 1,
-        roomType: 'Deluxe Room',
-        amenities: 'Swiming Pool, Gym, Spa, Sports-Complex, Hi Tea, Buffet',
-        price: 1000,
-        photos:
-          'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        checkInTime: new Date('11-Apr-2024'),
-        checkOutTime: new Date('23-Apr-2022'),
-        rating: 4.5,
-      },
-      {
-        roomNumber: 2,
-        roomType: 'Deluxe Room',
-        amenities: 'Swiming Pool, Gym, Spa, Sports-Complex, Hi Tea, Buffet',
-        price: 1500,
-        photos:
-          'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        checkInTime: new Date('11-Apr-2024'),
-        checkOutTime: new Date('23-Apr-2022'),
-        rating: 3.4,
-      },
-      {
-        roomNumber: 3,
-        roomType: 'Private Suite',
-        amenities: 'Swiming Pool, Gym, Spa, Sports-Complex, Hi Tea, Buffet',
-        price: 5000,
-        photos:
-          'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        checkInTime: new Date('11-Apr-2024'),
-        checkOutTime: new Date('23-Apr-2022'),
-        rating: 3.8,
-      },
-    ];
   }
 
   ngDoCheck() {
@@ -88,7 +55,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   }
   ngAfterViewInit() {
     this.headerComponent.title = 'Room View';
-    this.headerChildrenComponent.last.title = 'Last Title';
+    console.log((this.headerChildrenComponent.last.title = 'Last Title'));
     // this.headerChildrenComponent.get(0).title = 'First Title';
   }
   toggle() {

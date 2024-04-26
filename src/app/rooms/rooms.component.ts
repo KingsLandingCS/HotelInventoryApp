@@ -39,15 +39,17 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   // roomService = new RoomsService();
 
   constructor(private roomsService: RoomsService) { }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.roomList = this.roomsService.getRooms();
+  }
   // ngAfterViewInit(): void {
   //   throw new Error('Method not implemented.');
   // }
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
-  }
-
-  ngOnInit(): void {
-    // console.log(this.headerComponent);
   }
 
   ngDoCheck() {

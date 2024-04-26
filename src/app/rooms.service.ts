@@ -40,7 +40,7 @@ export class RoomsService {
       rating: 3.8,
     },
   ];
-  constructor() {}
+  constructor() { }
   getRooms() {
     return this.roomList;
   }

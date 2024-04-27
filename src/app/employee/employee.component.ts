@@ -5,7 +5,7 @@ import { Component, OnInit, Self, SkipSelf } from '@angular/core';
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss'],
-  providers: [RoomsService]
+  // providers: [RoomsService]
 })
 export class EmployeeComponent implements OnInit {
   empName: string = 'John';

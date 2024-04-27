@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  Optional,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
   title = 'HotelInventoryApp';
 
   @ViewChild('name', { static: true }) name!: ElementRef;
-  constructor(private loggerService: LoggerService) {
+  constructor(@Optional() private loggerService: LoggerService) {
 
   }
 

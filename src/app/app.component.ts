@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { RoomsComponent } from './rooms/rooms.component';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,12 @@ export class AppComponent implements OnInit {
   title = 'HotelInventoryApp';
 
   @ViewChild('name', { static: true }) name!: ElementRef;
+  constructor(private loggerService: LoggerService) {
+
+  }
 
   ngOnInit() {
+    this.loggerService?.log("AppComponent.ngOnInit()");
     this.name.nativeElement.innerText = 'Hilton Hotel';
   }
 

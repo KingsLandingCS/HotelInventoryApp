@@ -7,6 +7,7 @@ import {
   AfterViewInit,
   ViewChildren,
   QueryList,
+  SkipSelf,
 } from '@angular/core';
 import { Room, RoomList } from './rooms';
 import { HeaderComponent } from '../header/header.component';
@@ -38,7 +39,7 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit {
   headerChildrenComponent!: QueryList<HeaderComponent>;
   // roomService = new RoomsService();
 
-  constructor(private roomsService: RoomsService) { }
+  constructor(@SkipSelf() private roomsService: RoomsService) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
